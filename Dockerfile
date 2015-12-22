@@ -1,6 +1,6 @@
 FROM node
 
-RUN . /prime
+ADD . /prime
 WORKDIR /prime
 
 RUN npm install
