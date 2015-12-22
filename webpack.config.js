@@ -7,6 +7,7 @@ module.exports = {
     filename: "app.js"
   },
   resolve: {
+    root: __dirname,
     moduleDirectories: ["node_modules", "./src"]
   },
   module: {
