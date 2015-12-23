@@ -1,6 +1,8 @@
 import React from "react";
 import DevTools from './DevTools.jsx'
 
+import StyleSelector from '../components/StyleSelector.jsx'
+
 export class Root extends React.Component {
 
   constructor(props) {
@@ -11,8 +13,13 @@ export class Root extends React.Component {
 
     return (
         <div>
-          <p>Welcome to Cytoscape Prime</p>
-          <DevTools/>
+          <h1>
+              Welcome to Cytoscape Prime
+          </h1>
+
+            <StyleSelector/>
+
+            <DevTools/>
         </div>
     )
   }
