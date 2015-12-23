@@ -7,7 +7,7 @@ via Elsa, our Erlang Submit Agent, with micro services to deliver insights into 
 Getting Started
 -----
 
-Elsa uses Docker Hub automated builds for production use: [Prime on Docker Hub](https://hub.docker.com/r/cytoscape/prime).
+Prime uses Docker Hub automated builds for production use: [Prime on Docker Hub](https://hub.docker.com/r/cytoscape/prime).
 
 You will need a Docker daemon to deploy the app. Once you have docker installed, run:
 
