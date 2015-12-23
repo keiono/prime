@@ -1,19 +1,22 @@
-import { UPDATE_STYLE, REMOVE_STYLE } from '../actions/styleSelector'
+import { UPDATE_STYLE, REMOVE_STYLE } from '../actions/StyleSelectorActions'
 
-const defaultStyles = [
-    {
-        val: "default",
-        label: "default"
-    },
-    {
-        val: "black",
-        label: "default-black"
-    },
-    {
-        val: "directed",
-        label: "Directed"
-    }
-];
+const defaultStyles = {
+    styles: [
+        {
+            val: "default",
+            label: "default"
+        },
+        {
+            val: "black",
+            label: "default-black"
+        },
+        {
+            val: "directed",
+            label: "Directed"
+        }
+    ],
+    selectedStyle: "default"
+};
 
 export default function styleSelector(state = defaultStyles, action) {
 

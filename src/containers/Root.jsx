@@ -13,10 +13,9 @@ export class Root extends React.Component {
 
     return (
         <div>
-          <h1>
-              Welcome to Cytoscape Prime
-          </h1>
-
+            <h1>
+                Welcome to Cytoscape Prime
+            </h1>
             <StyleSelector/>
 
             <DevTools/>

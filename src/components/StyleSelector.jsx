@@ -1,18 +1,19 @@
 import React, { Component, PropTypes } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import * as StyleActions from '../state/actions/StyleSelectorActions'
+
 
 class StyleSelector extends Component {
 
-    constructor(props) {
-        super(props)
-        console.log(props)
-        console.log("----------- initialized.")
-    }
-
     render() {
 
-        const { styles, selectedStyle } = this.props;
+        const { update, styles, selectedStyle } = this.props;
         console.log("----------- render.")
-        console.log(this.state);
+        console.log(this.props)
+        console.log(update)
+        styles.map((val, idx) => {console.log(val)})
 
         return (
             <div>
@@ -20,27 +21,43 @@ class StyleSelector extends Component {
                     Current Visual Style:
                 </label>
 
-                <select value={selectedStyle} onChange={this.handleChange}>
-                  <option key="1" value="t1">test1</option>
-                    <option key="2" value="t2">test2</option>
+                <select value={selectedStyle} onChange={update}>
+                    {styles.map((o, i) => (<option key={i} value={i}>{o.label}</option>))}
                 </select>
             </div>
         )
     }
 
-    handleChange(e) {
-        console.log(e)
-        console.log(props.styles)
-        console.log("############ Change called ########## ")
-    }
 }
 
 StyleSelector.propTypes = {
+    update: PropTypes.func.isRequired,
+
     // List of Visual Styles
     styles: React.PropTypes.array.isRequired,
 
     // Current Visual Styles
     selectedStyle: PropTypes.string.isRequired
-};
+}
 
-export default StyleSelector
+function mapStateToProps(state) {
+
+    console.log("############!!! select called ########## ")
+    console.log(state)
+
+    return {
+        styles: state.styleSelector.styles,
+        selectedStyle: state.styleSelector.selectedStyle
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators(StyleActions, dispatch)
+}
+
+// Wrap the component to inject dispatch and state into it
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(StyleSelector)
+
