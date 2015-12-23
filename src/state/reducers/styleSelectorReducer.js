@@ -23,7 +23,6 @@ export default function styleSelector(state = defaultStyles, action) {
             return state;
 
         case REMOVE_STYLE:
-            console.log("Deleting...");
             return state;
 
         default:
