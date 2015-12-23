@@ -11,6 +11,7 @@ const defaultStyles = [
     },
     {
         val: "directed",
+        conso.log("Hello")
         label: "Directed"
     }
 ];
