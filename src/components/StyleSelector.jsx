@@ -1,19 +1,14 @@
 import React, { Component, PropTypes } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 
-import * as StyleActions from '../state/actions/StyleSelectorActions'
-
-
-class StyleSelector extends Component {
+/**
+ *
+ * Simple Component to select current Visual Style
+ *
+ */
+export default class StyleSelector extends Component {
 
     render() {
-
-        const { update, styles, selectedStyle } = this.props;
-        console.log("----------- render.")
-        console.log(this.props)
-        console.log(update)
-        styles.map((val, idx) => {console.log(val)})
+        const { styles } = this.props;
 
         return (
             <div>
@@ -21,43 +16,23 @@ class StyleSelector extends Component {
                     Current Visual Style:
                 </label>
 
-                <select value={selectedStyle} onChange={update}>
-                    {styles.map((o, i) => (<option key={i} value={i}>{o.label}</option>))}
+                <select onChange={this.handleSelection.bind(this)}>
+                    {styles.map((entry) => (<option key={entry.value} value={entry.value}>{entry.label}</option>))}
                 </select>
             </div>
         )
     }
 
-}
-
-StyleSelector.propTypes = {
-    update: PropTypes.func.isRequired,
-
-    // List of Visual Styles
-    styles: React.PropTypes.array.isRequired,
-
-    // Current Visual Styles
-    selectedStyle: PropTypes.string.isRequired
-}
-
-function mapStateToProps(state) {
-
-    console.log("############!!! select called ########## ")
-    console.log(state)
-
-    return {
-        styles: state.styleSelector.styles,
-        selectedStyle: state.styleSelector.selectedStyle
+    handleSelection(e) {
+        this.props.update(e.target.value)
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators(StyleActions, dispatch)
+
+StyleSelector.propTypes = {
+    // Action to update selected Style
+    update: PropTypes.func.isRequired,
+
+    // List of Visual Styles
+    styles: React.PropTypes.array.isRequired
 }
-
-// Wrap the component to inject dispatch and state into it
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(StyleSelector)
-

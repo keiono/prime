@@ -1,20 +1,16 @@
-export const UPDATE_STYLE = 'UPDATE_STYLE';
-export const REMOVE_STYLE = 'REMOVE_STYLE';
+export const STYLE_SELECTED = 'STYLE_SELECTED';
+export const STYLE_REMOVED = 'STYLE_REMOVED';
 
 export function update(selected) {
-    console.log("# Update called:")
-    console.log(selected)
-
     return {
-        type: UPDATE_STYLE,
+        type: STYLE_SELECTED,
         selected
-
     }
 }
 
-export function remove(index) {
+export function remove(toBeRemoved) {
     return {
-        type: REMOVE_STYLE,
-        index
+        type: STYLE_REMOVED,
+        toBeRemoved
     }
 }

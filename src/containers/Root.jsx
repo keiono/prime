@@ -1,7 +1,8 @@
 import React from "react";
 import DevTools from './DevTools.jsx'
 
-import StyleSelector from '../components/StyleSelector.jsx'
+import StyleSelectorContainer from '../containers/StyleSelectorContainer.jsx'
+
 
 export class Root extends React.Component {
 
@@ -16,7 +17,8 @@ export class Root extends React.Component {
             <h1>
                 Welcome to Cytoscape Prime
             </h1>
-            <StyleSelector/>
+
+            <StyleSelectorContainer/>
 
             <DevTools/>
         </div>
@@ -24,3 +26,4 @@ export class Root extends React.Component {
   }
 
 }
+
