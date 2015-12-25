@@ -1,4 +1,4 @@
-import { UPDATE_STYLE, REMOVE_STYLE } from '../actions/styleSelector'
+import { UPDATE_STYLE, REMOVE_STYLE } from '../actions/styleSelector.jsx'
 
 const defaultStyles = [
     {
