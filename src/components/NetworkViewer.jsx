@@ -5,7 +5,9 @@ export class NetworkViewer extends React.Component {
 
   constructor(props) {
     super(props)
-    this.props = props
+    console.log("Setting state")
+    console.log(props)
+    this.state = { graph: props.graph }
     this.style = {
       width: '200px',
       height: '200px'
@@ -16,12 +18,16 @@ export class NetworkViewer extends React.Component {
     console.log(this.props)
     this.cy = cytoscape({
       container: document.getElementById('cy'),
-      elements: this.props.graph
+      elements: this.state.graph
     }).on('data select select unselect add remove', () => {
       this.props.action() //some action goes in here
       console.log("Data was changed")
     }
   )
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({graph: nextProps.graph })
   }
 
   shouldComponentUpdate(_nextProps, _nextState) {

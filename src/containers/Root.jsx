@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import DevTools from './DevTools.jsx'
 
 import NetworkViewer from "../components/NetworkViewer.jsx"
+import NodeDestroyer from "../components/NodeDestroyer.jsx"
 
 class Root extends React.Component {
 
@@ -15,6 +16,7 @@ class Root extends React.Component {
     return (
         <div>
           <NetworkViewer graph={graph} action={dispatch}/>
+          <NodeDestroyer action={dispatch}/>
           <DevTools/>
         </div>
     )

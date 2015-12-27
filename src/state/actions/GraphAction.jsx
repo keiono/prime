@@ -8,10 +8,10 @@ export function addNode(node) {
   }
 }
 
-export function removeNode(node) {
+export function removeNode(node_id) {
   return {
     type: REMOVE_NODE,
-    node
+    id: node_id
   }
 }
 
