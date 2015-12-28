@@ -2,6 +2,7 @@ import React from "react";
 import DevTools from './DevTools.jsx'
 
 import StyleSelectorContainer from '../containers/StyleSelectorContainer.jsx'
+import TableBrowserContainer from '../containers/TableBrowserContainer.jsx'
 
 
 export class Root extends React.Component {
@@ -19,6 +20,8 @@ export class Root extends React.Component {
             </h1>
 
             <StyleSelectorContainer/>
+
+            <TableBrowserContainer />
 
             <DevTools/>
         </div>
