@@ -2,21 +2,21 @@ import React from "react";
 import { connect } from 'react-redux'
 import DevTools from './DevTools.jsx'
 
+import DataTableBrowser from '../components/DataTableBrowser.jsx'
+
 import NetworkViewer from "../components/NetworkViewer.jsx"
 import NodeDestroyer from "../components/NodeDestroyer.jsx"
 
 class Root extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
-    const { dispatch, graph } = this.props
+    const { dispatch, graph, ...props} = this.props
+
     return (
         <div>
           <NetworkViewer graph={graph} action={dispatch}/>
           <NodeDestroyer action={dispatch}/>
+            <DataTableBrowser graph={graph} {...props}/>
           <DevTools/>
         </div>
     )
@@ -26,7 +26,7 @@ class Root extends React.Component {
 
 function select(state) {
   return {
-    graph: state.graph
+      graph: state.graph
   }
 }
 
