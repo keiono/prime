@@ -9,8 +9,8 @@ export class NetworkViewer extends React.Component {
     console.log(props)
     this.state = { graph: props.graph }
     this.style = {
-      width: '200px',
-      height: '200px'
+      width: '800px',
+      height: '500px'
     }
   }
 
@@ -19,7 +19,10 @@ export class NetworkViewer extends React.Component {
     this.cy = cytoscape({
       container: document.getElementById('cy'),
       elements: this.state.graph
-    }).on('data select select unselect add remove', () => {
+    }).on('data select select unselect add remove', (ev) => {
+      console.log("::::::::::: CyJS Event ::::::::::")
+      console.log(ev)
+      console.log(this.props)
       this.props.action() //some action goes in here
       console.log("Data was changed")
     }

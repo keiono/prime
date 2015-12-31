@@ -7,5 +7,5 @@ import tableBrowser from './tableBrowserReducer.jsx'
 export default combineReducers({
   graph,
   //styleSelector,
-  tableBrowser
+  //tableBrowser
 })

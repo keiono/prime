@@ -1,4 +1,4 @@
-import { ADD_NODE, REMOVE_NODE, ADD_EDGE, REMOVE_EDGE } from "./Actions.jsx"
+import { ADD_NODE, REMOVE_NODE, ADD_EDGE, REMOVE_EDGE, SELECT_NODE } from "./Actions.jsx"
 
 
 export function addNode(node) {
@@ -26,5 +26,12 @@ export function removeEdge(edge) {
   return {
     type: REMOVE_EDGE,
     edge
+  }
+}
+
+export function selectNode(node) {
+  return {
+    type: SELECT_NODE,
+    node
   }
 }

@@ -1,4 +1,4 @@
-import { ADD_NODE, REMOVE_NODE, ADD_EDGE, REMOVE_EDGE } from "../actions/Actions.jsx"
+import { ADD_NODE, REMOVE_NODE, ADD_EDGE, REMOVE_EDGE, SELECT_NODE } from "../actions/Actions.jsx"
 
 const initialGraph = [
     { // node n1
@@ -63,6 +63,8 @@ export default function graph(state = initialGraph, action) {
         return e.data.id != action.id
       })
       return newState
+      case SELECT_NODE:
+          return state
     default:
       return state
   }

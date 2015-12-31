@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import ReactTabs, {Tab, Tabs, TabList, TabPanel} from 'react-tabs'
-
 import {DataTable} from './DataTable.jsx'
-
 
 
 export class DataTableBrowser extends Component {
@@ -49,11 +47,6 @@ export class DataTableBrowser extends Component {
     render() {
         const {graph, ...props} = this.props
         const {nodeColumnNames, edgeColumnNames, nodes, edges} = this.state
-
-        console.log("NODS")
-        console.log(nodes)
-        console.log("Edges")
-        console.log(edges)
 
         return (
             <Tabs
