@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
-import { update, remove } from '../state/actions/StyleSelectorActions'
+import { update, remove } from '../state/actions/StyleSelectorAction'
 
 import StyleSelector from '../components/StyleSelector.jsx'
 
