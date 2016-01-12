@@ -23,6 +23,7 @@ export class NetworkDestroyer extends React.Component {
   render() {
     return (
       <div>
+        <p>{this.props.graph.length}</p>
         <input type="text" value={this.state.node_name} onChange={this.handleChange}/>;
         <button onClick={this.removeNode}></button>
       </div>
