@@ -15,7 +15,7 @@ class Root extends React.Component {
     return (
         <div>
           <NetworkViewer graph={graph} action={dispatch}/>
-          <NodeDestroyer action={dispatch}/>
+          <NodeDestroyer graph={graph} action={dispatch}/>
             <DataTableBrowser graph={graph} {...props}/>
           <DevTools/>
         </div>
