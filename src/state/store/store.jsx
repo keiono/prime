@@ -7,18 +7,18 @@ import DevTools from '../../containers/DevTools.jsx'
 const logger = createLogger()
 
 const finalCreateStore = compose(
-  applyMiddleware(thunk, logger),
-  DevTools.instrument()
+    applyMiddleware(thunk, logger),
+    DevTools.instrument()
 )(createStore)
 
 export default function configureStore(initialState) {
-  const store = finalCreateStore(rootReducer, initialState)
+    const store = finalCreateStore(rootReducer, initialState)
 
-  if (module.hot) {
-    module.hot.accept('../reducers/rootReducer.jsx', () =>
-      store.replaceReducer(require('../reducers/rootReducer.jsx'))
-    )
-  }
+    if (module.hot) {
+        module.hot.accept('../reducers/rootReducer.jsx', () =>
+            store.replaceReducer(require('../reducers/rootReducer.jsx'))
+        )
+    }
 
-  return store
+    return store
 }

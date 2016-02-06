@@ -1,7 +1,7 @@
 {
-  "name": "prime",
+  "name": "network-viewer",
   "version": "0.1.0",
-  "description": "Cytoscape Prime",
+  "description": "Simple network viewer",
   "main": "build/app.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --content-base build",
@@ -26,7 +26,13 @@
     "Biology"
   ],
   "author": "Eric Sage <eric.david.sage@gmail.com>",
-  "license": "LGPL-3.0",
+  "contributors": [
+    {
+      "name": "Keiichiro Ono",
+      "email": "kono@ucsd.edu"
+    }
+  ],
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cytoscape-ci/prime/issues"
   },
@@ -49,10 +55,9 @@
     ]
   },
   "dependencies": {
-    "cytoscape": "^2.5.4",
-    "fixed-data-table": "^0.6.0",
+    "cytoscape": "^2.6.0",
     "immutable": "^3.7.6",
-    "react": "^0.14.3",
+    "react": "^0.14.7",
     "react-dom": "^0.14.3",
     "react-tabs": "^0.5.1",
     "redux": "^3.0.5",
@@ -60,6 +65,7 @@
     "redux-simple-router": "^1.0.1",
     "redux-thunk": "^1.0.2"
   },
+
   "devDependencies": {
     "babel-core": "^6.3.21",
     "babel-eslint": "^4.1.6",
