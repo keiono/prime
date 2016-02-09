@@ -1,33 +1,20 @@
-import { ADD_NODE, REMOVE_NODE, ADD_EDGE, REMOVE_EDGE, SELECT_NODE } from "./Actions.jsx"
+import {
+  SELECT_NODE,
+  LOAD_NETWORK,
+  RECEIVE_NETWORK,
+  REQUEST_NETWORK
+} from "./Actions.jsx"
+
+import fetch from 'isomorphic-fetch';
 
 
-export function addNode(node) {
+export function loadNetwork(networkUrl) {
   return {
-    type: ADD_NODE,
-    node
+    type: LOAD_NETWORK,
+    networkUrl
   }
 }
 
-export function removeNode(node_id) {
-  return {
-    type: REMOVE_NODE,
-    id: node_id
-  }
-}
-
-export function addEdge(edge) {
-  return {
-    type: ADD_EDGE,
-    edge
-  }
-}
-
-export function removeEdge(edge) {
-  return {
-    type: REMOVE_EDGE,
-    edge
-  }
-}
 
 export function selectNode(node) {
   return {
@@ -35,3 +22,45 @@ export function selectNode(node) {
     node
   }
 }
+
+
+function requestNetwork(networkUrl) {
+
+  return {
+    type: REQUEST_NETWORK,
+    networkUrl
+  }
+
+}
+
+
+function receiveNetwork(networkUrl, json) {
+
+  console.log("****** receive");
+  console.log(json);
+
+  let result = {
+    type: RECEIVE_NETWORK,
+    networkUrl,
+    network: json
+  };
+
+  console.log(result);
+
+  return result;
+
+}
+
+
+export function fetchNetwork(networkUrl) {
+
+  return function (dispatch) {
+
+    dispatch(requestNetwork(networkUrl));
+
+    return fetch(networkUrl)
+      .then(response => response.json())
+      .then(json => dispatch(receiveNetwork(networkUrl, json)));
+  }
+}
+

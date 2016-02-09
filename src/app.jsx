@@ -5,13 +5,14 @@ import { Map, List } from 'immutable'
 import Root from './containers/Root.jsx'
 import store from './state/store/store.jsx'
 
-require("./styles/app.scss")
+require("./styles/app.scss");
 
-const redux = store({})
+const redux = store({});
 
 ReactDOM.render(
-    <Provider store={redux}>
-        <Root/>
-    </Provider>,
-    document.getElementById('root')
-)
+  <Provider store={redux}>
+    <Root/>
+  </Provider>,
+
+  document.getElementById('root')
+);
