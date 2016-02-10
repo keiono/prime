@@ -1,41 +1,42 @@
 import {
-  SELECT_NODE,
+  NODE_SELECTED,
+  EDGE_SELECTED,
   RECEIVE_NETWORK,
   REQUEST_NETWORK
 } from "../actions/Actions.jsx"
 
 let EMPTY_GRAPH = {
-  data: {},
-  elements: {
-    nodes: [],
-    edges: []
-  }
+  elements: []
 };
 
-export default function graph(state = EMPTY_GRAPH, action) {
 
-  console.log("############# Graph Reducer ################");
-  console.log(action);
-  console.log(state);
-  console.log("############# Graph Reducer END ################");
+let INITIAL_STATE = {
+  graph: EMPTY_GRAPH,
+  selected: null,
+  graphUrl: '',
+  isFetching: false
+};
+
+
+export default function graph(state = INITIAL_STATE, action) {
 
   switch (action.type) {
 
     case REQUEST_NETWORK:
-      console.log("!!!!!!!!!!ACT");
-      return Object.assign({}, state, {
+      return Object.assign(state, {
+        graphUrl: action.graphUrl,
         isFetching: true
       });
     case RECEIVE_NETWORK:
-      console.log("!!!!!!!!!!Got new net:");
-      let newState = Object.assign({}, action.network);
-      console.log(newState);
-      console.log("!!!!!!!!!!!!!!!!!!!!!");
+      let newState = Object.assign(state, {
+        graph: action.graph,
+        isFetching: false
+      });
 
-      return newState;
+      console.log(newState)
+      return newState
 
     default:
-      console.log("!!!!!!!!!!DEF");
       return state;
   }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "network-viewer",
+  "name": "network-widget",
   "version": "0.1.0",
-  "description": "Simple network viewer",
+  "description": "Simple network viewer widget using Cytoscape.js and React.js.",
   "main": "build/app.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --content-base build",
@@ -23,7 +23,8 @@
     "Node",
     "Edge",
     "Network",
-    "Biology"
+    "Biology",
+    "Bioinformatics"
   ],
   "author": "Eric Sage <eric.david.sage@gmail.com>",
   "contributors": [

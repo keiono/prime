@@ -1,25 +1,31 @@
 import {
-  SELECT_NODE,
-  LOAD_NETWORK,
+  NODE_SELECTED,
+  EDGE_SELECTED,
   RECEIVE_NETWORK,
   REQUEST_NETWORK
 } from "./Actions.jsx"
 
 import fetch from 'isomorphic-fetch';
 
-
-export function loadNetwork(networkUrl) {
-  return {
-    type: LOAD_NETWORK,
-    networkUrl
-  }
-}
+// Cytoscape.js Constants
+const NODES = 'nodes';
+const EDGES = 'edges';
 
 
-export function selectNode(node) {
-  return {
-    type: SELECT_NODE,
-    node
+export function cyjsSelected(selected) {
+
+  let objType = selected.group()
+
+  if(objType === NODES) {
+    return {
+      type: NODE_SELECTED,
+      selected: selected
+    }
+  } else if(objType === EDGES) {
+    return {
+      type: EDGE_SELECTED,
+      selected: selected
+    }
   }
 }
 
@@ -28,7 +34,7 @@ function requestNetwork(networkUrl) {
 
   return {
     type: REQUEST_NETWORK,
-    networkUrl
+    graphUrl: networkUrl
   }
 
 }
@@ -37,12 +43,11 @@ function requestNetwork(networkUrl) {
 function receiveNetwork(networkUrl, json) {
 
   console.log("****** receive");
-  console.log(json);
 
   let result = {
     type: RECEIVE_NETWORK,
-    networkUrl,
-    network: json
+    graphUrl: networkUrl,
+    graph: json
   };
 
   console.log(result);
