@@ -1,7 +1,6 @@
 import React from "react"
+// Cytoscape.js
 import cytoscape from "cytoscape"
-
-import {GraphAction} from '../state/actions/GraphAction.jsx'
 
 
 // TODO: consolidate Cytoscape-dependent tags
@@ -68,6 +67,8 @@ class CytoscapeRenderer extends React.Component {
    * Once "cy" is ready, draw network calling raw Cytoscape.js API.
    */
   componentDidUpdate() {
+    console.log("$$$$$$$$$CyJS")
+
     this.updateCyjs();
   }
 

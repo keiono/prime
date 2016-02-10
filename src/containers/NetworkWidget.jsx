@@ -50,8 +50,11 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
 
+  console.log("888888 Style")
+  console.log(state)
   return {
     graph: state.graph,
+    style: state.style,
     selected: state.selected,
     graphUrl: state.graphUrl
   }

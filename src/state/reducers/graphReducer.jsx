@@ -23,18 +23,21 @@ export default function graph(state = INITIAL_STATE, action) {
   switch (action.type) {
 
     case REQUEST_NETWORK:
-      return Object.assign(state, {
+      return Object.assign({}, state, {
         graphUrl: action.graphUrl,
         isFetching: true
       });
     case RECEIVE_NETWORK:
-      let newState = Object.assign(state, {
+      return Object.assign({}, state, {
         graph: action.graph,
         isFetching: false
-      });
+      })
 
-      console.log(newState)
-      return newState
+    case NODE_SELECTED:
+    case EDGE_SELECTED:
+      return Object.assign(state, {
+        selected: action.selected
+      })
 
     default:
       return state;

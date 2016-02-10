@@ -14,7 +14,7 @@ const SAMPLE_NETWORK_URL = 'http://chianti.ucsd.edu/~kono/ci/data/cyjs-with-styl
 
 const DEF_WIDTH = '1200px'
 const DEF_HEIGHT = '800px'
-const DEF_BACKGROUND = '#FAFAFA'
+const DEF_BACKGROUND = '#EFEFEF'
 
 
 ReactDOM.render(
