@@ -2,6 +2,8 @@ import React from "react"
 // Cytoscape.js
 import cytoscape from "cytoscape"
 
+import {DEF_VISUAL_STYLE} from "./VisualStyle"
+
 
 // TODO: consolidate Cytoscape-dependent tags
 const CYTOSCAPE_TAG = 'cy';
